@@ -14,11 +14,19 @@ public class CleverPPC_Elements extends Parent{
 
     public WebElement getWebElement (String strElement){
         switch (strElement){
-           // case "" :
-           // case "" :
-           // case "" :
-           // case "" :
-           // case "" :
+           // case "signIn" :
+           // case "emailTextBox" :
+           // case "emailLoginTextBox" :
+           // case "signInButton" :
+           // case "createAnAccount" : return this.createAnAccount;
+           // case "radioButton" :
+           // case "firstName" :
+           // case "lastName" :
+           // case "password" :
+           // case "checkBox" :
+           // case "day" :
+           // case "month" :
+           // case "year" :
         }
         return null;
     }
