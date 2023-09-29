@@ -42,8 +42,21 @@ public class RegisterSteps {
         }
     }
 
+    @And("Hover to the element")
+    public void hoverToTheElement(DataTable dt) {
+        List<String> hoverList = dt.asList(String.class);
+        for (int i = 0; i < hoverList.size(); i++) {
+            WebElement e = ce.getWebElement(hoverList.get(i));
+            ce.moveToElement(e);
+        }
+    }
     @And("User select on the element")
-    public void userSelectOnTheElement() {
+    public void userSelectOnTheElement(DataTable dt) {
+        List<List<String>> selectList = dt.asLists(String.class);
+        for (int i = 0; i < selectList.size(); i++) {
+            WebElement e = ce.getWebElement(selectList.get(i).get(0));
+            ce.selectElement(e,selectList.get(i).get(1));
+        }
     }
 
     @Then("Success message should be displayed")

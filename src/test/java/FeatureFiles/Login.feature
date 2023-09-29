@@ -9,4 +9,5 @@ Feature: Login Functionlity
       | signInButton |
     Then Success message should be displayed
 
-    When Click on the element with myJsClick
+    And Click on the element with myJsClick
+      | sdfsdf |

@@ -9,9 +9,7 @@ Feature: User Registration on CleverPPC Prestashop Store
       | emailTextBox | falanfilan@gmail.com |
 
     And Click on the element
-      | createAnAccount |
-
-    And Click on the element
+      | createAnAccountButton |
       | radioButton |
 
     And User sending the keys
