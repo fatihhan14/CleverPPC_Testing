@@ -8,6 +8,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import javax.xml.crypto.Data;
 import java.util.List;
@@ -66,7 +67,7 @@ public class RegisterSteps {
         }
     }
 
-    @Then("Text message should be displayed")
+    @Then("Text verification process")
     public void textMessageShouldBeDisplayed(DataTable dt) {
         List<List<String>> text = dt.asLists(String.class);
         for (int i = 0; i < text.size(); i++) {
@@ -75,4 +76,15 @@ public class RegisterSteps {
         }
 
     }
+
+    @Then("Click on the random elements")
+    public void clickOnTheRandomElements() {
+        Actions action = new Actions (GWD.getDriver());
+        int random = (int) (Math.random()*ce.productList.size());
+        WebElement element = ce.productList.get (random);
+        WebElement element1=ce.addToCart.get(random);
+        action.moveToElement (element).build ().perform ();
+        element1.click();
+    }
+
 }

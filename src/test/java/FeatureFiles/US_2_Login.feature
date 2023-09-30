@@ -1,8 +1,8 @@
-Feature: Login Functionlity
+Feature: Login Functionality
 
   @Smoke
     @Accounts
-  Scenario Outline: TC_US06_UserLogin
+  Scenario Outline: TC_US02_UserLogin
     Given Navigate to website
     And Click on the element
       | signIn |
@@ -11,7 +11,7 @@ Feature: Login Functionlity
       | password          | <password> |
     And Click on the element
       | loginButton |
-    Then Text message should be displayed
+    Then Text verification process
       | <messageElement> | <messageText> |
     Examples:
       | email                   | password   | messageElement     | messageText      |

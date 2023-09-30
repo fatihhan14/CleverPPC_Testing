@@ -1,8 +1,8 @@
-Feature: User Registration on CleverPPC Prestashop Store
+Feature: Register Functionality
 
   @Smoke
   @Accounts
-  Scenario: TC_US06_UserRegistration
+  Scenario: TC_US01_UserRegistration
     Given Navigate to website
     When Click on the element
       | signIn |
@@ -23,11 +23,6 @@ Feature: User Registration on CleverPPC Prestashop Store
     And Click on the element
       | registerButton |
 
-    Then Text message should be displayed
+    Then Text verification process
       | alertMessage | created |
 
-     #| address       | 123 Main Street |
-     #| City          | New York        |
-     #| Postal Code   | 10001           |
-     #| Mobile Phone  | 555-555-5555    |
-     #| Alias Address | Home Address    |
