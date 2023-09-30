@@ -34,6 +34,11 @@ public class Parent {
         Select selectElement = new Select(element);
         selectElement.selectByValue(value);
     }
+    public void selectElementWithText(WebElement element, String value) {
+        wait.until(ExpectedConditions.visibilityOf(element));
+        Select selectElement = new Select(element);
+        selectElement.selectByVisibleText(value);
+    }
 
     public void scrollToElement(WebElement element) {
         JavascriptExecutor js = (JavascriptExecutor) GWD.getDriver();
@@ -53,9 +58,11 @@ public class Parent {
         js.executeScript("arguments[0].click();", element);
     }
     public void moveToElement(WebElement element) {
+        scrollToElement(element);
         Actions actions = new Actions(GWD.getDriver());
         wait.until(ExpectedConditions.visibilityOf(element));
         Action action = actions.moveToElement(element).build();
         action.perform();
     }
+
 }

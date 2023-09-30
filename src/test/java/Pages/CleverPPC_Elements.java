@@ -86,6 +86,12 @@ public class CleverPPC_Elements extends Parent {
     public WebElement layerCartProductText;
     @FindBy(css = "a[title='Proceed to checkout']")
     public WebElement proceedTocheckout;
+    @FindBy(css = "[name='processAddress']")
+    public WebElement proceedTocheckout3;
+    @FindBy(xpath = "(//a[@title='Proceed to checkout'])[2]")
+    public WebElement proceedTocheckout2;
+    @FindBy(xpath = "//button[@name='processCarrier']")
+    public WebElement proceedTocheckout4;
     @FindBy(xpath = "//span[contains(text(),' Tax included')]")
     public WebElement taxIncluded;
     @FindBy(xpath = "(//a[@title='Dresses'])[2]")
@@ -96,11 +102,80 @@ public class CleverPPC_Elements extends Parent {
     public WebElement continueShopping;
     @FindBy(xpath = "//span[@class='heading-counter']//span")
     public WebElement productSize;
+    @FindBy(css = "a[title='View my shopping cart']")
+    public WebElement cartIcon;
+    @FindBy(xpath = "//p[@class='cart-buttons']//a")
+    public WebElement checkOut;
+    @FindBy(css = "select[id='id_address_delivery']")
+    public WebElement addressSelect;
+    @FindBy(css = "label[for='cgv']")
+    public WebElement checkBoxAgree;
+    @FindBy(css = "input[id='paypal-standard-btn']")
+    public WebElement paypalPayButton;
+    @FindBy(css = "div[class=message]")
+    public WebElement paypalMessage;
+    @FindBy(xpath = "//body[contains(text(),'Invalid request (1).')]")
+    public WebElement creditCartErrorMessage;
+    @FindBy(xpath = "(//p[@class='payment_module']//a)[3]")
+    public WebElement creditCartPayButton;
+    @FindBy(xpath = "(//p[@class='payment_module']//a)[1]")
+    public WebElement bankWirePayButton;
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+     public WebElement confirmOrderButton;
+    @FindBy(css = "p[class='alert alert-success']")
+     public WebElement orderCompleteSuccessMsg;
+    @FindBy(css = "div[class='box']")
+     public WebElement orderReferanceCodeText;
+    @FindBy(css = "span[title='Close window']")
+    public WebElement closeWindow;
+    @FindBy(linkText = "Contact us")
+    public WebElement contactUsButton;
+    @FindBy(css = "label[for='id_contact']")
+    public WebElement subjectHeading;
+    @FindBy(xpath = "//option[text()='Customer service']")
+    public WebElement customerService;
+    @FindBy(xpath = "(//div[@class='selector']//select)[2]")
+    public WebElement chooseOrderRef;
+    @FindBy(xpath = "//select[@name='id_order']/option[2]")
+    public WebElement orderRef;
+    @FindBy(xpath = "//select[@id='284_order_products']/option[2]")
+    public WebElement productId;
+    @FindBy(id = "uniform-fileUpload")
+    public WebElement chooseFileButton;
+    @FindBy(css = "textarea[class='form-control']")
+    public WebElement textArea;
+    @FindBy(xpath = "(//button[@type='submit'])[2]")
+    public WebElement sendButton;
+
+
 
 
     public WebElement getWebElement(String strElement) {
         switch (strElement) {
             case "signIn": return this.signIn;
+            case "sendButton": return this.sendButton;
+            case "textArea": return this.textArea;
+            case "chooseFileButton": return this.chooseFileButton;
+            case "contactUsButton": return this.contactUsButton;
+            case "customerService": return this.customerService;
+            case "chooseOrderRef": return this.chooseOrderRef;
+            case "orderRef": return this.orderRef;
+            case "subjectHeading": return this.subjectHeading;
+            case "proceedTocheckout4": return this.proceedTocheckout4;
+            case "alertMessage": return this.alertMessage;
+            case "closeWindow": return this.closeWindow;
+            case "productId": return this.productId;
+            case "orderCompleteSuccessMsg": return this.orderCompleteSuccessMsg;
+            case "confirmOrderButton": return this.confirmOrderButton;
+            case "checkBoxAgree": return this.checkBoxAgree;
+            case "bankWirePayButton": return this.bankWirePayButton;
+            case "creditCartPayButton": return this.creditCartPayButton;
+            case "creditCartErrorMessage": return this.creditCartErrorMessage;
+            case "paypalPayButton": return this.paypalPayButton;
+            case "paypalMessage": return this.paypalMessage;
+            case "addressSelect": return this.addressSelect;
+            case "checkOut": return this.checkOut;
+            case "cartIcon": return this.cartIcon;
             case "emailCreate": return this.emailCreate;
             case "emailLoginTextBox": return this.emailLoginTextBox;
             case "loginButton": return this.loginButton;
@@ -133,11 +208,13 @@ public class CleverPPC_Elements extends Parent {
             case "summerDress": return this.summerDress;
             case "layerCartProductText": return this.layerCartProductText;
             case "proceedTocheckout": return this.proceedTocheckout;
+            case "proceedTocheckout2": return this.proceedTocheckout2;
             case "taxIncluded": return this.taxIncluded;
             case "dresses": return this.dresses;
             case "numberOfProducts": return this.numberOfProducts;
             case "continueShopping": return this.continueShopping;
             case "productSize": return this.productSize;
+            case "proceedTocheckout3": return this.proceedTocheckout3;
 
         }
         return null;

@@ -13,7 +13,7 @@ Feature: Add to Cart List Functionality
       | myAccountText | Welcome |
 
 
-  Scenario:TC_US04_AddToCartList
+  Scenario:TC_US06_AddToCartList
     Given Click on the element
       | dresses |
     When Click on the random elements 3

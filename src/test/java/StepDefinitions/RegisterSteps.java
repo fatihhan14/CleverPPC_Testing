@@ -2,6 +2,7 @@ package StepDefinitions;
 
 import Pages.CleverPPC_Elements;
 import Utulities.GWD;
+import Utulities.MyFunc;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -9,12 +10,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.util.List;
 
 public class RegisterSteps {
     CleverPPC_Elements ce = new CleverPPC_Elements();
+
 
     @Given("Navigate to website")
     public void NavigateTowebsite() {
@@ -35,7 +39,7 @@ public class RegisterSteps {
         List<String> strClickItems = dt.asList(String.class);
         for (int i = 0; i < strClickItems.size(); i++) {
             WebElement e = ce.getWebElement(strClickItems.get(i));
-            ce.myClick(e);
+            ce.myJsClick(e);
         }
     }
 
@@ -62,8 +66,7 @@ public class RegisterSteps {
         List<List<String>> selectList = dt.asLists(String.class);
         for (int i = 0; i < selectList.size(); i++) {
             WebElement e = ce.getWebElement(selectList.get(i).get(0));
-            String value = selectList.get(i).get(1);
-            ce.selectElement(e, value);
+            ce.selectElementWithText(e, selectList.get(i).get(1));
         }
     }
 
@@ -103,8 +106,8 @@ public class RegisterSteps {
         do {
             random = (int) (Math.random() * ce.productList.size());
             if (random != a2) {
-                 element = ce.productList.get(random);
-                 element1 = ce.addToCart.get(random);
+                element = ce.productList.get(random);
+                element1 = ce.addToCart.get(random);
                 action.moveToElement(element).build().perform();
                 element1.click();
                 ce.myJsClick(ce.continueShopping);
@@ -112,11 +115,7 @@ public class RegisterSteps {
             }
             a2 = random;
         } while (a != 2);
-
-
-
     }
-
 
     @And("Length of the product list verification process")
     public void lengthOfTheProductListVerificationProcess(DataTable dt) {
@@ -127,5 +126,34 @@ public class RegisterSteps {
             String e2 = Integer.toString(ce.addToCart.size());
             ce.verifyContainsText(e, e2);
         }
+    }
+
+    @And("Page is returned")
+    public void pageIsReturned() {
+        GWD.getDriver().navigate().back();
+    }
+
+    @And("Order Reference Text saving")
+    public void orderReferenceTextSaving() {
+        System.out.println(ce.orderReferanceCodeText.getText());
+    }
+
+
+    @When("User uploading files to the website")
+    public void userUploadingFilesToTheWebsite() throws AWTException {
+        Robot robot = new Robot();
+        StringSelection dosyaYolu = new StringSelection("C:\\Users\\fatih\\OneDrive\\Masaüstü\\DEKONT.jpg");
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(dosyaYolu, null);
+        MyFunc.Wait(1);
+
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyRelease(KeyEvent.VK_V);
+
+        MyFunc.Wait(1);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
     }
 }
