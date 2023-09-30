@@ -12,7 +12,9 @@ Feature: Add to Cart Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+  @Smoke
+  @Cart
+  @Regression
   Scenario:TC_US04_AddToCart
     Given Hover to the element
       | women |

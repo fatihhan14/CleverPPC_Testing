@@ -12,7 +12,8 @@ Feature: Checkout Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+  @Products
+  @Checkout
   Scenario:TC_US07_Checkout
     Given Click on the element
       | dresses |

@@ -16,7 +16,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
 
-public class RegisterSteps {
+public class CleverPPC_Test_Steps {
     CleverPPC_Elements ce = new CleverPPC_Elements();
 
 

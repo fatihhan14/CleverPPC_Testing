@@ -1,7 +1,7 @@
 Feature: Login Functionality
 
   @Smoke
-    @Accounts
+  @Accounts
   Scenario Outline: TC_US02_UserLogin
     Given Navigate to website
     And Click on the element

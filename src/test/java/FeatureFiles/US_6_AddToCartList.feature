@@ -12,7 +12,8 @@ Feature: Add to Cart List Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+  @Cart
+  @Products
   Scenario:TC_US06_AddToCartList
     Given Click on the element
       | dresses |

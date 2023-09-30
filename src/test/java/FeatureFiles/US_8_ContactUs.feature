@@ -12,7 +12,8 @@ Feature: Contact Us Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+@Contact
+@Support
   Scenario:TC_US08_ContactUs
     Given Click on the element
       | contactUsButton  |

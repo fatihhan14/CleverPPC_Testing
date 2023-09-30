@@ -12,7 +12,8 @@ Feature: Product List Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+  @Regression
+  @Products
   Scenario:TC_US05_ProductList
     When Click on the element
       | dresses |

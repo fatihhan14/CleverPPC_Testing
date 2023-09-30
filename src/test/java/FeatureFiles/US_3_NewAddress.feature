@@ -12,7 +12,8 @@ Feature: New Address Functionality
     Then Text verification process
       | myAccountText | Welcome |
 
-
+  @Regression
+  @Addresses
   Scenario:TC_US03_NewAddress
     Given Click on the element
       | siteMap             |
