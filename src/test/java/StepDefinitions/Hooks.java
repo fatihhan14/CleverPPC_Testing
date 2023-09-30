@@ -16,7 +16,7 @@ public class Hooks {
 
     @After
     public void after(Scenario senaryo) {
-        ExcelUtility.writeExcel("xxxxxxxxxxxxx",senaryo);
+        ExcelUtility.writeExcel("src/ExcelRepots/CleverPPCExel.xlsx",senaryo);
 
         if (senaryo.isFailed()) {
             TakesScreenshot ts = (TakesScreenshot) GWD.getDriver();

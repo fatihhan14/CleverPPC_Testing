@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import Pages.CleverPPC_Elements;
+import Utulities.GWD;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -8,12 +9,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 
+import javax.xml.crypto.Data;
 import java.util.List;
 
 public class RegisterSteps {
     CleverPPC_Elements ce = new CleverPPC_Elements();
-    @Given("the user accesses the website")
-    public void theUserAccessesTheWebsite() {
+
+    @Given("Navigate to website")
+    public void NavigateTowebsite() {
+        GWD.getDriver().get("https://cleverppc.com/prestashop4/");
     }
 
     @When("Click on the element")
@@ -24,6 +28,7 @@ public class RegisterSteps {
             ce.myClick(e);
         }
     }
+
     @When("Click on the element with myJsClick")
     public void clickOnTheElementmyJsClick(DataTable dt) {
         List<String> strClickItems = dt.asList(String.class);
@@ -38,7 +43,7 @@ public class RegisterSteps {
         List<List<String>> items = dt.asLists(String.class);
         for (int i = 0; i < items.size(); i++) {
             WebElement e = ce.getWebElement(items.get(i).get(0));
-            ce.mySendKeys(e,items.get(i).get(1));
+            ce.mySendKeys(e, items.get(i).get(1));
         }
     }
 
@@ -50,16 +55,24 @@ public class RegisterSteps {
             ce.moveToElement(e);
         }
     }
+
     @And("User select on the element")
     public void userSelectOnTheElement(DataTable dt) {
         List<List<String>> selectList = dt.asLists(String.class);
         for (int i = 0; i < selectList.size(); i++) {
             WebElement e = ce.getWebElement(selectList.get(i).get(0));
-            ce.selectElement(e,selectList.get(i).get(1));
+            String value = selectList.get(i).get(1);
+            ce.selectElement(e, value);
         }
     }
 
-    @Then("Success message should be displayed")
-    public void successMessageShouldBeDisplayed() {
+    @Then("Text message should be displayed")
+    public void textMessageShouldBeDisplayed(DataTable dt) {
+        List<List<String>> text = dt.asLists(String.class);
+        for (int i = 0; i < text.size(); i++) {
+            WebElement e = ce.getWebElement(text.get(i).get(0));
+            ce.verifyContainsText(e, text.get(i).get(1));
+        }
+
     }
 }
