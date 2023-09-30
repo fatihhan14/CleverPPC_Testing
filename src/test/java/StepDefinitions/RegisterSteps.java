@@ -9,8 +9,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 
 public class RegisterSteps {
@@ -79,12 +79,53 @@ public class RegisterSteps {
 
     @Then("Click on the random elements")
     public void clickOnTheRandomElements() {
-        Actions action = new Actions (GWD.getDriver());
-        int random = (int) (Math.random()*ce.productList.size());
-        WebElement element = ce.productList.get (random);
-        WebElement element1=ce.addToCart.get(random);
-        action.moveToElement (element).build ().perform ();
+        Actions action = new Actions(GWD.getDriver());
+        int random = (int) (Math.random() * ce.productList.size());
+        WebElement element = ce.productList.get(random);
+        WebElement element1 = ce.addToCart.get(random);
+        action.moveToElement(element).build().perform();
         element1.click();
     }
 
+    @Then("Click on the random elements 3")
+    public void clickOnTheRandomElements3() {
+        Actions action = new Actions(GWD.getDriver());
+        int a = 0;
+        int a2 = 0;
+        int random = (int) (Math.random() * ce.productList.size());
+        WebElement element = ce.productList.get(random);
+        WebElement element1 = ce.addToCart.get(random);
+        action.moveToElement(element).build().perform();
+        element1.click();
+        ce.myJsClick(ce.continueShopping);
+        a2 = random;
+
+        do {
+            random = (int) (Math.random() * ce.productList.size());
+            if (random != a2) {
+                 element = ce.productList.get(random);
+                 element1 = ce.addToCart.get(random);
+                action.moveToElement(element).build().perform();
+                element1.click();
+                ce.myJsClick(ce.continueShopping);
+                a++;
+            }
+            a2 = random;
+        } while (a != 2);
+
+
+
+    }
+
+
+    @And("Length of the product list verification process")
+    public void lengthOfTheProductListVerificationProcess(DataTable dt) {
+        List<String> text = dt.asList(String.class);
+
+        for (int i = 0; i < text.size(); i++) {
+            WebElement e = ce.getWebElement(text.get(i));
+            String e2 = Integer.toString(ce.addToCart.size());
+            ce.verifyContainsText(e, e2);
+        }
+    }
 }

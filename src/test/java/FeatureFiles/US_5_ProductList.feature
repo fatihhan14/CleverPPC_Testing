@@ -1,4 +1,4 @@
-Feature: Add to Cart Functionality
+Feature: Product List Functionality
 
   Background: LOGIN
     Given Navigate to website
@@ -13,15 +13,10 @@ Feature: Add to Cart Functionality
       | myAccountText | Welcome |
 
 
-  Scenario:TC_US04_AddToCart
-    Given Hover to the element
-      | women |
+  Scenario:TC_US05_ProductList
     When Click on the element
-      | summerDress |
-    Then Click on the random elements
+      | dresses |
     And Text verification process
-      | layerCartProductText | successfully |
-    And Click on the element
-      | proceedTocheckout |
-    And Text verification process
-      | taxIncluded | Tax included |
+      | numberOfProducts | 5 |
+    And Length of the product list verification process
+      | numberOfProducts |

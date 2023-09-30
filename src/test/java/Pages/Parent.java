@@ -17,6 +17,7 @@ public class Parent {
     public WebDriverWait wait = new WebDriverWait(GWD.getDriver(), Duration.ofSeconds(20));
 
     public void myClick(WebElement element) {
+        wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
         element.click();
@@ -45,6 +46,7 @@ public class Parent {
         new Actions(GWD.getDriver()).sendKeys(Keys.ESCAPE).build().perform();
     }
     public void myJsClick(WebElement element){
+        wait.until(ExpectedConditions.visibilityOf(element));
         wait.until(ExpectedConditions.elementToBeClickable(element));
         scrollToElement(element);
         JavascriptExecutor js=(JavascriptExecutor)GWD.getDriver();

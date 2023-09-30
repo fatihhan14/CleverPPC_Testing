@@ -13,7 +13,7 @@ Feature: New Address Functionality
       | myAccountText | Welcome |
 
 
-  Scenario:TC_US02_NewAddress
+  Scenario:TC_US03_NewAddress
     Given Click on the element
       | siteMap             |
       | addressesLink       |

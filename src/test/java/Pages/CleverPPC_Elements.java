@@ -82,16 +82,20 @@ public class CleverPPC_Elements extends Parent {
     public List<WebElement> productList;
     @FindBy(xpath = "//*[contains(text(),'Add to cart')]")
     public List<WebElement> addToCart;
-    @FindBy(xpath = "//span[contains(text(),'Women')]")
-    public WebElement womenText;
-    @FindBy(xpath = "//span[contains(text(),'Summer Dresses')]")
-    public WebElement summurDressText;
     @FindBy(xpath = "//span[@class='title'][1]")
     public WebElement layerCartProductText;
     @FindBy(css = "a[title='Proceed to checkout']")
     public WebElement proceedTocheckout;
     @FindBy(xpath = "//span[contains(text(),' Tax included')]")
-    public WebElement summaryCRTL;
+    public WebElement taxIncluded;
+    @FindBy(xpath = "(//a[@title='Dresses'])[2]")
+    public WebElement dresses;
+    @FindBy(xpath = "//span[@class='heading-counter']")
+    public WebElement numberOfProducts;
+    @FindBy(xpath = "//span[@title='Continue shopping']")
+    public WebElement continueShopping;
+    @FindBy(xpath = "//span[@class='heading-counter']//span")
+    public WebElement productSize;
 
 
     public WebElement getWebElement(String strElement) {
@@ -129,7 +133,11 @@ public class CleverPPC_Elements extends Parent {
             case "summerDress": return this.summerDress;
             case "layerCartProductText": return this.layerCartProductText;
             case "proceedTocheckout": return this.proceedTocheckout;
-            case "summaryCRTL": return this.summaryCRTL;
+            case "taxIncluded": return this.taxIncluded;
+            case "dresses": return this.dresses;
+            case "numberOfProducts": return this.numberOfProducts;
+            case "continueShopping": return this.continueShopping;
+            case "productSize": return this.productSize;
 
         }
         return null;
