@@ -1,4 +1,4 @@
-Feature: Checkout Functionality
+Feature: Ordering and payment Functionality
 
   Background: LOGIN
     Given Navigate to website
@@ -14,7 +14,7 @@ Feature: Checkout Functionality
 
   @Products
   @Checkout
-  Scenario:TC_US07_Checkout
+  Scenario:TC_US07_OrderingAndPayment
     Given Click on the element
       | dresses |
 
