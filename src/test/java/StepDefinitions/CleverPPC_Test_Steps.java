@@ -83,7 +83,7 @@ public class CleverPPC_Test_Steps {
     @Then("Click on the random elements")
     public void clickOnTheRandomElements() {
         Actions action = new Actions(GWD.getDriver());
-        int random = (int) (Math.random() * ce.productList.size());
+        int random = MyFunc.randomGenerator(ce.productList.size());
         WebElement element = ce.productList.get(random);
         WebElement element1 = ce.addToCart.get(random);
         action.moveToElement(element).build().perform();
