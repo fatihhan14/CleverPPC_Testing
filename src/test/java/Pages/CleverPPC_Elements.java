@@ -100,7 +100,7 @@ public class CleverPPC_Elements extends Parent {
     public WebElement numberOfProducts;
     @FindBy(xpath = "//span[@title='Continue shopping']")
     public WebElement continueShopping;
-    @FindBy(xpath = "//span[@class='heading-counter']//span")
+    @FindBy(xpath = "//span[@id='summary_products_quantity']")
     public WebElement productSize;
     @FindBy(css = "a[title='View my shopping cart']")
     public WebElement cartIcon;

@@ -84,7 +84,7 @@ public class CleverPPC_Test_Steps {
     public void clickOnTheRandomElements() {
         int random = MyFunc.randomGenerator(ce.productList.size());
         ce.moveToElement(ce.productList.get(random));
-        ce.myClick(ce.addToCart.get(random));
+        ce.addToCart.get(random).click();
     }
 
     @Then("Click on the random elements 3")
@@ -93,14 +93,14 @@ public class CleverPPC_Test_Steps {
         int a2 = 0;
         int random = MyFunc.randomGenerator(ce.productList.size());
         ce.moveToElement(ce.productList.get(random));
-        ce.myClick(ce.addToCart.get(random));
+        ce.addToCart.get(random).click();
         ce.myJsClick(ce.continueShopping);
         a2 = random;
         do {
             random = MyFunc.randomGenerator(ce.productList.size());
             if (random != a2) {
                 ce.moveToElement(ce.productList.get(random));
-                ce.myClick(ce.addToCart.get(random));
+                ce.addToCart.get(random).click();
                 ce.myJsClick(ce.continueShopping);
                 a++;
             }

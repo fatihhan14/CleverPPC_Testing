@@ -26,4 +26,4 @@ Feature: Add to Cart Functionality
     And Click on the element
       | proceedTocheckout |
     And Text verification process
-      | taxIncluded | Tax included |
+      | productSize | 1 products |
